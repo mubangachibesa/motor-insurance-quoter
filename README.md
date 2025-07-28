@@ -1,69 +1,39 @@
-# React + TypeScript + Vite
+# Motor Insurance Quoter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a multi-step motor insurance quote generator built with **React**, **TypeScript**, and **Vite**. It features a clean, modern UI inspired by insurance platforms like GEICO and Lemonade.
 
-Currently, two official plugins are available:
+## 🔧 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React (with Hooks)  
+- TypeScript  
+- Vite  
+- Tailwind CSS  
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. Clone the Repository
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+git clone https://github.com/mubangachibesa/motor-insurance-quoter.git
+cd motor-insurance-quoter
+2. Install Dependencies
+bash
+Copy
+Edit
+npm install
+3. Start the App in Development Mode
+⚠️ Important: Use development mode instead of building for production.
+The production build (npm run build) may have issues on platforms like Vercel or GitHub Pages due to missing rewrite rules required for client-side routing.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+bash
+Copy
+Edit
+npm run dev
+Open your browser and visit:
+http://localhost:5173
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🧪 Linting and Type Safety
+The project comes with a minimal ESLint setup. For production-level development, consider expanding linting rules with type-aware configurations and stricter settings.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Refer to the official Vite React plugin documentation for recommended ESLint configurations:
+https://github.com/vitejs/vite-plugin-react

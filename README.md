@@ -22,7 +22,6 @@ npm install
 ### 3. Start the App in Development Mode
 ⚠️ Important: Use development mode instead of building for production.
 The production build (npm run build) may have issues.
-
 bash
 npm run dev
 Open your browser and visit:

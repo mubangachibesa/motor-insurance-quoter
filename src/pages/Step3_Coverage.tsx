@@ -1,78 +1,69 @@
 import React from 'react';
+import { Button } from '@/components/ui/button';
 
 type Props = {
   next: () => void;
   back: () => void;
-  update: (data: { coverage: string }) => void;
-  coverage?: string;
+  update: (data: any) => void;
+  data: any;
 };
 
-const coverages = [
-  {
-    key: 'Comprehensive',
-    label: 'Comprehensive Coverage',
-    description: 'Full protection including theft, fire, and damages.',
-    priceImpact: '+500 ZMW',
-  },
-  {
-    key: 'Third Party',
-    label: 'Third Party Coverage',
-    description: 'Basic protection for damages to others only.',
-    priceImpact: '+200 ZMW',
-  },
-];
+const Step3_Coverage = ({ next, back, update, data }: Props) => {
+  const selectCoverage = (coverage: string) => {
+    update({ coverage });
+  };
 
-export default function Step3_Coverage({ next, back, update, coverage = '' }: Props) {
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-semibold text-gray-800">Select Coverage</h2>
-      <div className="flex flex-col sm:flex-row gap-6">
-        {coverages.map(({ key, label, description, priceImpact }) => {
-          const selected = coverage === key;
-          return (
-            <button
-              key={key}
-              type="button"
-              onClick={() => update({ coverage: key })}
-              className={`flex-1 border rounded-2xl p-6 text-left cursor-pointer transition
-                ${
-                  selected
-                    ? 'border-blue-600 bg-blue-50 shadow-lg'
-                    : 'border-gray-300 hover:border-blue-400 hover:bg-blue-50'
-                }
-              `}
-            >
-              <div className="flex justify-between items-center mb-2">
-                <h3 className={`text-lg font-semibold ${selected ? 'text-blue-600' : 'text-gray-800'}`}>
-                  {label}
-                </h3>
-                <span className={`text-sm font-medium ${selected ? 'text-blue-600' : 'text-gray-600'}`}>
-                  {priceImpact}
-                </span>
-              </div>
-              <p className="text-gray-600">{description}</p>
-            </button>
-          );
-        })}
+      <h2 className="text-xl font-semibold text-gray-800">Select Coverage</h2>
+
+      <div className="grid grid-cols-1 gap-4">
+        <div
+          className={`border p-4 rounded-lg cursor-pointer ${
+            data.coverage === 'Comprehensive'
+              ? 'border-green-600 bg-green-50'
+              : 'border-gray-300'
+          }`}
+          onClick={() => selectCoverage('Comprehensive')}
+        >
+          <h3 className="text-lg font-bold">Comprehensive Coverage</h3>
+          <p className="text-sm text-gray-600">+500 ZMW</p>
+          <p className="text-sm text-gray-500">
+            Full protection including theft, fire, and damages.
+          </p>
+        </div>
+
+        <div
+          className={`border p-4 rounded-lg cursor-pointer ${
+            data.coverage === 'Third Party'
+              ? 'border-green-600 bg-green-50'
+              : 'border-gray-300'
+          }`}
+          onClick={() => selectCoverage('Third Party')}
+        >
+          <h3 className="text-lg font-bold">Third Party Coverage</h3>
+          <p className="text-sm text-gray-600">+200 ZMW</p>
+          <p className="text-sm text-gray-500">
+            Basic protection for damages to others only.
+          </p>
+        </div>
       </div>
 
-      <div className="flex justify-between mt-8">
-        <button
-          onClick={back}
-          className="px-6 py-2 border border-gray-300 rounded-xl hover:bg-gray-100 transition"
-        >
+      <div className="flex justify-between mt-6">
+        <Button onClick={back} variant="outline">
           Back
-        </button>
-        <button
+        </Button>
+
+        <Button
           onClick={next}
-          disabled={!coverage}
-          className={`px-6 py-2 rounded-xl text-white transition
-            ${coverage ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-300 cursor-not-allowed'}`}
+          disabled={!data.coverage}
+          className="bg-green-600 text-white"
         >
           Next
-        </button>
+        </Button>
       </div>
     </div>
   );
-}
+};
 
+export default Step3_Coverage;

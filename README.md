@@ -16,23 +16,21 @@ This is a multi-step motor insurance quote generator built with **React**, **Typ
 ```bash
 git clone https://github.com/mubangachibesa/motor-insurance-quoter.git
 cd motor-insurance-quoter
-2. Install Dependencies
+
+### 2. Install Dependencies
 bash
-Copy
-Edit
 npm install
-3. Start the App in Development Mode
+
+### 3. Start the App in Development Mode
 ⚠️ Important: Use development mode instead of building for production.
 The production build (npm run build) may have issues on platforms like Vercel or GitHub Pages due to missing rewrite rules required for client-side routing.
 
 bash
-Copy
-Edit
 npm run dev
 Open your browser and visit:
 http://localhost:5173
 
-🧪 Linting and Type Safety
+### 🧪 Linting and Type Safety
 The project comes with a minimal ESLint setup. For production-level development, consider expanding linting rules with type-aware configurations and stricter settings.
 
 Refer to the official Vite React plugin documentation for recommended ESLint configurations:
